@@ -21,3 +21,6 @@ class Resources(AKView):
 
 class Services(AKView):
     template_name = "public/services.html"
+
+class Advantage(AKView):
+    template_name = "public/advantage.html"

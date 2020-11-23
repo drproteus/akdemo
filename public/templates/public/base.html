@@ -22,30 +22,40 @@
             "{% static 'img/pic7.jpg' %}"
         ]
         window.unsplash.idx = 1;
-        window.setInterval(function() {
-            $("#wumbo").css("background-image", `url(${window.unsplash.pics[window.unsplash.idx]})`);
+        window.setInterval(function () {
+            $(".wumbo").css("background-image", `url(${window.unsplash.pics[window.unsplash.idx]})`);
             window.unsplash.idx = (window.unsplash.idx + 1) % window.unsplash.pics.length;
             console.log(window.unsplash.idx);
-        }, 30000);
+        }, 15000);
     </script>
     <style>
-        @media (min-width: 768px) {
-        }
+        @media (min-width: 768px) {}
+
         .container {
             margin-top: 120px;
         }
-        #wumbo {
+
+        .wumbo {
             background-image: url("{% static 'img/pic1.jpg' %}");
             background-size: cover;
             height: 400px;
             transition: background-image 5s;
+            position: relative;
+        }
+
+        .wumbo-content {
+            margin-left: 50%;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 50px;
+            border-radius: 25px;
+            color: black;
         }
     </style>
 </head>
 
-<body>
+<body class="d-flex flex-column h-100">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="#"><img class="rounded" src="{% static 'img/logo05.gif' %}"/></a>
+        <a class="navbar-brand" href="#"><img class="rounded" src="{% static 'img/logo05.gif' %}" /></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -54,19 +64,24 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link {% if current_page == 'home' %} active {% endif %}" href="/">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link {% if current_page == 'home' %} active {% endif %}" href="/">Home <span
+                            class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {% if current_page == 'about' %} active {% endif %}" href="/about">About Anderson-Kelly</a>
+                    <a class="nav-link {% if current_page == 'about' %} active {% endif %}" href="/about">About
+                        Anderson-Kelly</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {% if current_page == 'services' %} active {% endif %}" href="/services">Services</a>
+                    <a class="nav-link {% if current_page == 'services' %} active {% endif %}"
+                        href="/services">Services</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {% if current_page == 'resources' %} active {% endif %}" href="/resources">Resources</a>
+                    <a class="nav-link {% if current_page == 'resources' %} active {% endif %}"
+                        href="/resources">Resources</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {% if current_page == 'contact' %} active {% endif %}" href="/contact">Contact Us</a>
+                    <a class="nav-link {% if current_page == 'contact' %} active {% endif %}" href="/contact">Contact
+                        Us</a>
                 </li>
                 <!--
                 <li class="nav-item dropdown">
@@ -87,12 +102,84 @@
         </div>
     </nav>
 
-    <main role="main" class="container">
-        {% block content %}
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis tempore accusamus odit corporis ullam tenetur, cupiditate accusantium possimus quibusdam maiores doloremque est reiciendis dolor nesciunt saepe aperiam assumenda adipisci rerum!</p>
-        <div class="jumbotron" id="wumbo">
-        {% endblock %}
+    <main role="main" class="flex-shrink-0">
+        <div class="container">
+            {% block content %}
+            <blockquote class="blockquote text-center alert alert-info">Anderson-Kelly is a leading global provider of
+                comprehensive
+                occupational health solutions for the
+                maritime industry.
+            </blockquote>
+            <a href="/advantage" class="text-decoration-none">
+                <div class="jumbotron wumbo">
+                    <div class="wumbo-content">
+                        <h3>The Anderson-Kelly Advantage:</h3>
+                        <p><i>The real advantage to working with us...</i></p>
+                    </div>
+                </div>
+            </a>
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Experience</h5>
+                            <p class="card-text">
+                                Anderson-Kelly has experience managing programs for virtually all types of commercial
+                                maritime
+                                operations.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Service</h5>
+                            <p class="card-text">
+                                One call to Anderson-Kelly gives you full access to our extensive resources, when you
+                                need
+                                them,
+                                where you need them.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Information</h5>
+                            <p class="card-text">
+                                Anderson-Kelly Information Systems (AKIS) software is our in-house developed solution
+                                customized to provide control over all processes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Network</h5>
+                            <p class="card-text">
+                                Our extensive international network of service providers enables us to deliver services
+                                where our clients operate.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endblock %}
+        </div>
     </main><!-- /.container -->
+    <footer class="footer mt-auto py-3">
+        <div class="container">
+        <hr>
+            <span class="text-muted">© {% now 'Y' %} Anderson-Kelly Associates, Inc., All Rights Reserved</span><a
+                href="/login" class="float-right">Client Login</a>
+        </div>
+    </footer>
 </body>
 
 </html>
