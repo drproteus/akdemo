@@ -25,7 +25,7 @@ SECRET_KEY = 'i3+4=tt%!p0i#q#y_r@!*(^m!z%r61wg0g7upecel3r9vh*$()'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 
 
 # Application definition
@@ -75,8 +75,12 @@ WSGI_APPLICATION = 'akdemo.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'demodb',
+        'USER': 'demouser',
+        'PASSWORD': 'demopass',
+        'HOST': 'db',
+        'PORT': '',
     }
 }
 
