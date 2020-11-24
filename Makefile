@@ -6,7 +6,10 @@ static:
 	docker-compose run --rm web python manage.py collectstatic
 
 init:
-	docker-compose up -d
+	docker-compose up --no-start
+	docker-compose start
+	@sleep 5
+	@echo Waiting for DBs...
 	docker-compose exec web python manage.py migrate
 	docker-compose exec web python manage.py collectstatic
 	docker-compose exec web python manage.py loaddata public/fixtures/resources.json
