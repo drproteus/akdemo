@@ -61,6 +61,8 @@
             padding: 50px;
             color: black;
         }
+    {% block extrastyle %}
+    {% endblock %}
     </style>
 </head>
 
@@ -187,8 +189,9 @@
     <footer class="footer mt-auto py-3">
         <div class="container">
             <hr>
-            <span class="text-muted">© {% now 'Y' %} Anderson-Kelly Associates, Inc., All Rights Reserved</span><a
-                href="/login" class="float-right">Client Login</a>
+            <span class="text-muted">© {% now 'Y' %} Anderson-Kelly Associates, Inc., All Rights Reserved</span>
+            <a href="/login" class="float-right">Client Login</a>
+            <a href="/admin" class="float-right text-muted" style="margin-right: 10px;">Admin</a>
         </div>
     </footer>
 </body>

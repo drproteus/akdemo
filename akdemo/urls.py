@@ -24,6 +24,6 @@ urlpatterns = [
     path('about', public.views.About.as_view(), name="about"),
     path('contact', public.views.Contact.as_view(), name="contact"),
     path('resources', public.views.Resources.as_view(), name="resources"),
-    path('services', public.views.Resources.as_view(), name="services"),
+    path('services', public.views.Services.as_view(), name="services"),
     path('advantage', public.views.Advantage.as_view(), name="advantage"),
 ]

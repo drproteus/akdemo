@@ -1,5 +1,6 @@
 from django.views.generic.base import TemplateView
 from random import randint
+from public.models import Resource
 
 class AKView(TemplateView):
     def get_context_data(self, **kwargs):
@@ -18,6 +19,11 @@ class Contact(AKView):
 
 class Resources(AKView):
     template_name = "public/resources.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["resources"] = Resource.objects.exclude(archived=True)
+        return context
 
 class Services(AKView):
     template_name = "public/services.html"

@@ -1,0 +1,101 @@
+[
+{
+    "model": "public.resource",
+    "pk": 1,
+    "fields": {
+        "title": "American Maritime Safety",
+        "url": "http://www.maritimesafety.org/",
+        "archived": false,
+        "created_at": "2020-11-24T00:07:57.875Z",
+        "updated_at": "2020-11-24T00:07:57.875Z"
+    }
+},
+{
+    "model": "public.resource",
+    "pk": 2,
+    "fields": {
+        "title": "DOT Office of Drug & Alcohol Policy and Compliance",
+        "url": "http://www.dot.gov/ost/dapc/",
+        "archived": false,
+        "created_at": "2020-11-24T00:18:43.896Z",
+        "updated_at": "2020-11-24T00:18:43.896Z"
+    }
+},
+{
+    "model": "public.resource",
+    "pk": 3,
+    "fields": {
+        "title": "USCG Marine Safety, Security and Environmental Protection",
+        "url": "http://www.uscg.mil/hq/g-m/gmhome.htm",
+        "archived": false,
+        "created_at": "2020-11-24T00:18:49.923Z",
+        "updated_at": "2020-11-24T00:18:49.923Z"
+    }
+},
+{
+    "model": "public.resource",
+    "pk": 4,
+    "fields": {
+        "title": "IMO International Maritime Organization",
+        "url": "http://www.imo.org/home.asp",
+        "archived": false,
+        "created_at": "2020-11-24T00:18:56.514Z",
+        "updated_at": "2020-11-24T00:18:56.514Z"
+    }
+},
+{
+    "model": "public.resource",
+    "pk": 5,
+    "fields": {
+        "title": "INTERTANKO International Association of Independent Tanker Owners",
+        "url": "http://www.intertanko.com/",
+        "archived": false,
+        "created_at": "2020-11-24T00:19:04.328Z",
+        "updated_at": "2020-11-24T00:19:04.328Z"
+    }
+},
+{
+    "model": "public.resource",
+    "pk": 6,
+    "fields": {
+        "title": "WHO World Health Organization",
+        "url": "http://www.who.int/en/",
+        "archived": false,
+        "created_at": "2020-11-24T00:19:12.004Z",
+        "updated_at": "2020-11-24T00:19:12.004Z"
+    }
+},
+{
+    "model": "public.resource",
+    "pk": 7,
+    "fields": {
+        "title": "ILO International Labor Organization",
+        "url": "http://www.ilo.org/",
+        "archived": false,
+        "created_at": "2020-11-24T00:19:19.088Z",
+        "updated_at": "2020-11-24T00:19:19.088Z"
+    }
+},
+{
+    "model": "public.resource",
+    "pk": 8,
+    "fields": {
+        "title": "IMHA International Maritime Health Association",
+        "url": "http://www.imha.net/",
+        "archived": false,
+        "created_at": "2020-11-24T00:19:27.587Z",
+        "updated_at": "2020-11-24T00:19:27.587Z"
+    }
+},
+{
+    "model": "public.resource",
+    "pk": 9,
+    "fields": {
+        "title": "George Washington University, Maritime Medical Access",
+        "url": "http://www.gwemed.edu/telemedicine_solutions/maritime_medical_access.aspx",
+        "archived": false,
+        "created_at": "2020-11-24T00:19:36.529Z",
+        "updated_at": "2020-11-24T00:19:36.529Z"
+    }
+}
+]

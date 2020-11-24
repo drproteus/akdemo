@@ -1,0 +1,43 @@
+{% extends "public/base.html" %}
+{% load static %}
+{% block title %}Resources{% endblock %}
+{% block extrastyle %}
+.resource-url {
+    margin-left: 25px;
+}
+.resource-card {
+    margin: 10px 0;
+}
+{% endblock %}
+
+{% block content %}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="about">Resources</li>
+    </ol>
+</nav>
+
+<img class="img-fluid img-thumbnail ak-thumbnail float-right" src="{% static 'img/pic2.jpg' %}" />
+<div class="row">
+    <div class="col">
+        <h2>Resources</h2>
+        <h5>Regulatory & Maritime Links</h5>
+        <p class="text-muted"><em>
+                <abbr title="attribute">Please note:</abbr> Anderson-Kelly does not control and cannot guarantee the relevance, timeliness, or accuracy
+                of the content and/or information found by following the links to the below web sites. All the below
+                links will open in a new browser window.
+            </em></p>
+
+        {% for resource in resources %}
+        <a href="{{ resource.url }}"><div class="card resource-card">
+            <div class="card-header"><h5>{{ resource.title }}</h5></div>
+            <div class="card-body">
+                <p class="card-text text-muted">{{ resource.url }}</p>
+            </div>
+        </div></a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
