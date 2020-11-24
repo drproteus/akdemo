@@ -1,0 +1,82 @@
+{% extends "public/base.html" %}
+{% load static %}
+{% block title %}About{% endblock %}
+
+{% block extrastyle %}
+.service-list {
+    list-style: none;
+}
+.service-list li ul {
+    list-style: none;
+}
+{% endblock %}
+{% block content %}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="about">Services</li>
+    </ol>
+</nav>
+
+<img class="img-fluid img-thumbnail ak-thumbnail float-right" src="{% static 'img/pic7.jpg' %}" />
+<div class="row">
+    <div class="col">
+        <h3>Our Services</h3>
+        <p>At Anderson-Kelly, we offer 2 major areas of service:</p>
+        <ul>
+            <li>Medical Programs and Services, and</li>
+            <li>Substance Abuse Screening Programs</li>
+        </ul>
+        <p>We adhere to all industry standards including those of international shipping organizations, S.T.C.W.,
+            S.H.I.P., as well as U.S. Coast Guard, the U.S. Department of Transportation.</p>
+
+        <p>The flexibility of our Programs and Services allows you to take advantage of just one, several or all of our
+            services...
+        <p>
+
+        <ul class="service-list">
+            <li>
+                Substance Abuse Programs
+            </li>
+            <li>
+                Medical Programs and Services <ul>
+                    <li>
+                        Fitness for Duty Examinations
+                    </li>
+                    <br>
+                    <li>
+                        Pre-Placement Examinations
+                    </li>
+                    <li>
+                        Periodic Examinations
+                    </li>
+                    <li>
+                        Return to Work Examinations
+                    </li>
+                    <br>
+                    <li>
+                        Military Sealift Command Medical Services
+                    </li>
+                    <li>
+                        Medical Surveillance Programs
+                    </li>
+                    <li>
+                        Immunizations and Travel Medicine
+                    </li>
+                    <li>
+                        Independent Medical Evaluations
+                    </li>
+                    <li>
+                        Chart Review
+                    </li>
+                    <li>
+                        Functional Capability Assessments
+                    </li>
+                </ul>
+            </li>
+        <li>Policy Development</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

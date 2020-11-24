@@ -29,11 +29,7 @@
         }, 15000);
     </script>
     <style>
-        @media only screen and (max-width: 600px)  {
-            .wumbo-content {
-                padding: 0;
-                margin: 0;
-            }
+        @media only screen and (max-width: 600px) {
             .ak-thumbnail {
                 margin-bottom: 10px;
             }
@@ -50,19 +46,23 @@
         .wumbo {
             background-image: url("{% static 'img/pic1.jpg' %}");
             background-size: cover;
+            background-repeat: no-repeat;
             height: 400px;
             transition: background-image 5s;
             position: relative;
         }
 
-        .wumbo-content {
-            margin-left: 0;
+        .wumbo .content {
             background: rgba(255, 255, 255, 0.8);
-            padding: 50px;
-            color: black;
+            margin: auto;
+            color: #010;
+            text-decoration: none;
+            display: inline-block;
+            padding: 5px;
+            border-radius: 5px;
         }
-    {% block extrastyle %}
-    {% endblock %}
+{% block extrastyle %}
+{% endblock %}
     </style>
 </head>
 
@@ -120,22 +120,23 @@
             {% if messages %}
             <div class="messages">
                 {% for message in messages %}
-                <div class="alert {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}alert-danger{% else %}alert-info{% endif %}">
+                <div
+                    class="alert {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}alert-danger{% else %}alert-info{% endif %}">
                     {{ message }}
                 </div>
                 {% endfor %}
             </div>
             {% endif %}
             {% block content %}
-            <blockquote class="blockquote text-center alert alert-info">Anderson-Kelly is a leading global provider of
+            <blockquote class="blockquote text-center">Anderson-Kelly is a leading global provider of
                 comprehensive
                 occupational health solutions for the
                 maritime industry.
             </blockquote>
             <a href="/advantage" class="text-decoration-none">
                 <div class="jumbotron wumbo">
-                    <div class="wumbo-content">
-                        <h3>The Anderson-Kelly Advantage:</h3>
+                    <div class="content">
+                        <h3>The Anderson-Kelly Advantage</h3>
                         <p><i>The real advantage to working with us...</i></p>
                     </div>
                 </div>
