@@ -101,7 +101,15 @@
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
+                {% if not is_authenticated %}
                 <a class="btn btn-secondary my-2 my-sm-0" href="/login">Login</a>
+                {% else %}
+                <div class="btn-group" role="group">
+                    <button class="btn btn-light my-2 my-sm-0" disabled>{{ current_user.email }}</button>
+                    <a class="btn btn-success my-2 my-sm-0" href="/app">Portal</a>
+                    <a class="btn btn-secondary my-2 my-sm-0" href="/logout">Logout</a>
+                </div>
+                {% endif %}
             </form>
         </div>
     </nav>
