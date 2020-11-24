@@ -9,6 +9,7 @@ init:
 	docker-compose up -d
 	docker-compose exec web python manage.py migrate
 	docker-compose exec web python manage.py collectstatic
+	docker-compose exec web python manage.py loaddata public/fixtures/resources.json
 	docker-compose exec web psql -h umami-db -U umami -d umami -f umami-schema.psql
 	docker-compose ps
 
@@ -17,4 +18,7 @@ down:
 
 clean:
 	@make down
-	docker volume rm umami-db akdemo-db akdemo-assets
+	docker volume rm akdemo_umami-db akdemo_akdemo-db akdemo_akdemo-assets
+
+ngrok:
+	ngrok start -authtoken "$(NGROK_AUTH_TOKEN)" --config ngrok.yml --all

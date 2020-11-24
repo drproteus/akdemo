@@ -1,0 +1,9 @@
+tunnels:
+  akdemo:
+    proto: http
+    addr: "8000"
+    subdomain: akdemo
+  umami:
+    proto: http
+    addr: "8001"
+    subdomain: akdemo-analytics
