@@ -15,7 +15,7 @@ loaddata:
 	docker-compose exec web python manage.py loaddata public/fixtures/resources.json
 
 loadumami:
-	@echo --- Loading Analytics Schema
+	@echo --- Loading Analytics Schema (password is 'umami')
 	docker-compose run --rm -v `pwd`:/data -e PGPASSWORD=umami \
 				umami-db psql -h umami-db \
 				-U umami -d umami -f /data/umami-schema.psql
