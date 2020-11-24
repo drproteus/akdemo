@@ -31,5 +31,5 @@ urlpatterns = [
     path('logout', public.views.Logout.as_view(), name="logout"),
     path('services/<slug:slug>', public.views.Service.as_view(), name="service"),
 
-    path('app/', main.views.Dashboard.as_views(), name="dashboard")
+    path('app/', main.views.Dashboard.as_view(), name="dashboard")
 ]
