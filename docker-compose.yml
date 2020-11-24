@@ -6,6 +6,9 @@ services:
     volumes:
       - .:/var/www/ak
       - akdemo-assets:/var/www/assets
+    environment:
+      UMAMI_TOKEN: "$UMAMI_TOKEN"
+      UMAMI_URL: "$UMAMI_URL"
     ports:
       - "8000:8000"
     depends_on:
