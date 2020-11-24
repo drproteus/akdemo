@@ -2,18 +2,32 @@ tag ?= latest
 build:
 	docker build . -t akdemo:$(tag)
 
+migrate:
+	@echo --- Running Migrations
+	docker-compose exec web python manage.py migrate
+
 static:
-	docker-compose run --rm web python manage.py collectstatic
+	@echo --- Collecting Static Assets
+	docker-compose exec web python manage.py collectstatic
+
+loaddata:
+	@echo --- Loading Fixture Data
+	docker-compose exec web python manage.py loaddata public/fixtures/resources.json
+
+loadumami:
+	@echo --- Loading Analytics Schema
+	docker-compose run --rm -v `pwd`:/data -e PGPASSWORD=umami \
+				umami-db psql -h umami-db \
+				-U umami -d umami -f /data/umami-schema.psql
 
 init:
 	docker-compose up --no-start
 	docker-compose start
-	@sleep 5
-	@echo Waiting for DBs...
-	docker-compose exec web python manage.py migrate
-	docker-compose exec web python manage.py collectstatic
-	docker-compose exec web python manage.py loaddata public/fixtures/resources.json
-	docker-compose exec web psql -h umami-db -U umami -d umami -f umami-schema.psql
+	@make static
+	@echo --- Waiting for DBs... && sleep 5
+	@make migrate
+	@make loaddata
+	@make loadumami
 	docker-compose restart
 	docker-compose ps
 
