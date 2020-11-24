@@ -2,6 +2,10 @@ tag ?= latest
 build:
 	docker build . -t akdemo:$(tag)
 
+migrations:
+	@echo --- Running Migrations
+	docker-compose exec web python manage.py makemigrations
+
 migrate:
 	@echo --- Running Migrations
 	docker-compose exec web python manage.py migrate
