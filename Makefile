@@ -11,6 +11,7 @@ init:
 	docker-compose exec web python manage.py collectstatic
 	docker-compose exec web python manage.py loaddata public/fixtures/resources.json
 	docker-compose exec web psql -h umami-db -U umami -d umami -f umami-schema.psql
+	docker-compose restart
 	docker-compose ps
 
 down:
