@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 
 import public.views
+import main.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,5 +29,7 @@ urlpatterns = [
     path('advantage', public.views.Advantage.as_view(), name="advantage"),
     path('login', public.views.Login.as_view(), name="login"),
     path('logout', public.views.Logout.as_view(), name="logout"),
-    path('services/<slug:slug>', public.views.Service.as_view(), name="service")
+    path('services/<slug:slug>', public.views.Service.as_view(), name="service"),
+
+    path('app/', main.views.Dashboard.as_views(), name="dashboard")
 ]

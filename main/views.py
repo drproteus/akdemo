@@ -8,7 +8,8 @@ from main.models import Article
 
 class Dashboard(View):
     def get(self, request):
-        pass
+        articles = Article.objects.filter(archived=False).order_by("-created_at")
+        return render(request, "main/articles.html", {"articles": articles})
 
 
 class BlogView(View):

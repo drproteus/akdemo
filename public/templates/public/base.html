@@ -79,6 +79,7 @@
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
+                {% block navitems %}
                 <li class="nav-item">
                     <a class="nav-link {% if current_page == 'home' %} active {% endif %}" href="/">Home <span
                             class="sr-only">(current)</span></a>
@@ -99,6 +100,7 @@
                     <a class="nav-link {% if current_page == 'contact' %} active {% endif %}" href="/contact">Contact
                         Us</a>
                 </li>
+                {% endblock %}
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 {% if not is_authenticated %}
