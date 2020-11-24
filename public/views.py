@@ -43,8 +43,8 @@ class Login(View):
         user = authenticate(username=email, password=password)
         if user is None:
             messages.add_message(request, messages.ERROR, "Invalid email or password")
-        else:
-            login(request, user)
+            return self.get(request)
+        login(request, user)
         return render(request, "public/base.html")
 
 class Service(View):
