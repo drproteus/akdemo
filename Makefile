@@ -20,15 +20,19 @@ loadumami:
 				umami-db psql -h umami-db \
 				-U umami -d umami -f /data/umami-schema.psql
 
+defaultadmin:
+	@echo --- Creating Superuser account admin [admin@akdemo.ngrok.io]
+	docker-compose exec web python manage.py createsuperuser --username admin --email admin@akdemo.ngrok.io
+
 init:
-	docker-compose up --no-start
-	docker-compose start
+	docker-compose up -d
 	@make static
 	@echo --- Waiting for DBs... && sleep 5
 	@make migrate
 	@make loaddata
 	@make loadumami
 	docker-compose restart
+	@make defaultadmin
 	docker-compose ps
 
 down:

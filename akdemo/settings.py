@@ -65,6 +65,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'main.context_processors.util'
             ],
         },
     },
@@ -129,3 +130,6 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 STATIC_ROOT = "/var/www/assets"
+
+UMAMI_URL = os.getenv("UMAMI_URL", "")
+UMAMI_TOKEN = os.getenv("UMAMI_TOKEN", "")
