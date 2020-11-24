@@ -5,26 +5,31 @@ services:
     working_dir: /var/www/ak
     volumes:
       - .:/var/www/ak
+      - akdemo-assets:/var/www/assets
     ports:
       - "8000:8000"
     depends_on:
       - db
     command: "python manage.py runserver 0.0.0.0:8000"
-    restart: always
+    restart: unless-stopped
   db:
     image: postgres
     environment:
       - "POSTGRES_PASSWORD=demopass"
       - "POSTGRES_USER=demouser"
       - "POSTGRES_DB=demodb"
-    restart: always
+    restart: unless-stopped
+    volumes:
+      - akdemo-db:/var/lib/postgresql
   umami-db:
     image: postgres
     environment:
       - "POSTGRES_PASSWORD=umami"
       - "POSTGRES_USER=umami"
       - "POSTGRES_DB=umami"
-    restart: always
+    restart: unless-stopped
+    volumes:
+      - umami-db:/var/lib/postgresql
   umami:
     image: ghcr.io/mikecao/umami:postgresql-latest
     ports:
@@ -35,3 +40,8 @@ services:
       HASH_SALT: adslkjfhi2k83yrkufha7hlsa8y21
     depends_on:
       - umami-db
+    restart: unless-stopped
+volumes:
+  umami-db:
+  akdemo-db:
+  akdemo-assets:
