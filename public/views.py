@@ -1,4 +1,6 @@
-from django.views.generic.base import TemplateView
+from django.contrib import messages
+from django.views.generic.base import TemplateView, View
+from django.shortcuts import render
 from random import randint
 from public.models import Resource
 
@@ -30,3 +32,12 @@ class Services(AKView):
 
 class Advantage(AKView):
     template_name = "public/advantage.html"
+
+class Login(View):
+    def get(self, request):
+        return render(request, "public/login.html")
+
+    def post(self, request):
+        email, password = request.POST.get("inputEmail", ""), request.POST.get("inputPassword", "")
+        messages.add_message(request, messages.ERROR, f"{email}: {password}")
+        return render(request, "public/base.html")

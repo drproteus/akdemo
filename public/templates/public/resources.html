@@ -31,12 +31,12 @@
             </em></p>
 
         {% for resource in resources %}
-        <a href="{{ resource.url }}"><div class="card resource-card">
+        <div class="card resource-card">
             <div class="card-header"><h5>{{ resource.title }}</h5></div>
             <div class="card-body">
-                <p class="card-text text-muted">{{ resource.url }}</p>
+                <p class="card-text text-muted"><a href="{{ resource.url }}">{{ resource.url }}</a></p>
             </div>
-        </div></a>
+        </div>
         {% endfor %}
     </div>
 </div>

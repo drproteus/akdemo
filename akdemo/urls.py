@@ -26,4 +26,5 @@ urlpatterns = [
     path('resources', public.views.Resources.as_view(), name="resources"),
     path('services', public.views.Services.as_view(), name="services"),
     path('advantage', public.views.Advantage.as_view(), name="advantage"),
+    path('login', public.views.Login.as_view(), name="login"),
 ]
