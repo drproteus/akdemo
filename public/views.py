@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.contrib.auth import authenticate, logout, login
 from django.views.generic.base import TemplateView, View
 from django.shortcuts import render
 from random import randint
@@ -39,9 +40,19 @@ class Login(View):
 
     def post(self, request):
         email, password = request.POST.get("inputEmail", ""), request.POST.get("inputPassword", "")
-        messages.add_message(request, messages.ERROR, f"{email}: {password}")
+        user = authenticate(username=email, password=password)
+        if user is None:
+            messages.add_message(request, messages.ERROR, "Invalid email or password")
+        else:
+            login(request, user)
         return render(request, "public/base.html")
 
 class Service(View):
     def get(self, request, slug):
         return render(request, f"public/services/{slug}.html")
+
+
+class Logout(View):
+    def get(self, request):
+        logout(request)
+        return render(request, "public/base.html")

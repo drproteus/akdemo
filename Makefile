@@ -15,14 +15,14 @@ loaddata:
 	docker-compose exec web python manage.py loaddata public/fixtures/resources.json
 
 loadumami:
-	@echo --- Loading Analytics Schema (password is 'umami')
+	@echo --- Loading Analytics Schema
 	docker-compose run --rm -v `pwd`:/data -e PGPASSWORD=umami \
 				umami-db psql -h umami-db \
 				-U umami -d umami -f /data/umami-schema.psql
 
 defaultadmin:
 	@echo --- Creating Superuser account admin [admin@akdemo.ngrok.io]
-	docker-compose exec web python manage.py createsuperuser --username admin --email admin@akdemo.ngrok.io
+	docker-compose exec web python manage.py createsuperuser --username admin@akdemo.ngrok.io --email admin@akdemo.ngrok.io
 
 init:
 	docker-compose up -d
