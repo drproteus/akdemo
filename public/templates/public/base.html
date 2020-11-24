@@ -201,9 +201,16 @@
     <footer class="footer mt-auto py-3">
         <div class="container">
             <hr>
-            <span class="text-muted">© {% now 'Y' %} Anderson-Kelly Associates, Inc., All Rights Reserved</span>
-            <!-- <a href="/login" class="float-right">Client Login</a> -->
-            <a href="/admin" class="float-right text-muted" style="margin-right: 10px;">Admin</a>
+            <div class="row">
+                <div class="col-md-6">
+                    <span class="text-muted">© {% now 'Y' %} Anderson-Kelly Associates, Inc., All Rights Reserved</span>
+                </div>
+                {% if is_authenticated %}
+                <div class="col-md-6" style="text-align: right">
+                    <a href="/admin" class="float-right text-muted" style="margin-right: 10px;">Admin</a>
+                </div>
+                {% endif %}
+            </div>
         </div>
     </footer>
 </body>
