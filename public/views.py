@@ -41,3 +41,7 @@ class Login(View):
         email, password = request.POST.get("inputEmail", ""), request.POST.get("inputPassword", "")
         messages.add_message(request, messages.ERROR, f"{email}: {password}")
         return render(request, "public/base.html")
+
+class Service(View):
+    def get(self, request, slug):
+        return render(request, f"public/services/{slug}.html")

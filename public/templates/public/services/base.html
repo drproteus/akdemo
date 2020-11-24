@@ -1,0 +1,21 @@
+{% extends "public/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/services">Services</a></li>
+        {% block service_breadcrumbs %}{% endblock %}
+    </ol>
+</nav>
+
+<img class="img-fluid img-thumbnail ak-thumbnail float-left" src="{% static 'img/pic4.jpg' %}" />
+<div class="row">
+    <div class="col">
+        {% block service_content %}{% endblock %}
+    </div>
+</div>
+
+{% endblock %}

@@ -27,4 +27,5 @@ urlpatterns = [
     path('services', public.views.Services.as_view(), name="services"),
     path('advantage', public.views.Advantage.as_view(), name="advantage"),
     path('login', public.views.Login.as_view(), name="login"),
+    path('services/<slug:slug>', public.views.Service.as_view(), name="service")
 ]

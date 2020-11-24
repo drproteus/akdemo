@@ -1,14 +1,9 @@
 {% extends "public/base.html" %}
 {% load static %}
-{% block title %}About{% endblock %}
+{% block title %}Services{% endblock %}
 
 {% block extrastyle %}
-.service-list {
-    list-style: none;
-}
-.service-list li ul {
-    list-style: none;
-}
+
 {% endblock %}
 {% block content %}
 
@@ -37,12 +32,12 @@
 
         <ul class="service-list">
             <li>
-                Substance Abuse Programs
+                <a href="/services/substance_abuse_programs">Substance Abuse Programs</a>
             </li>
             <li>
-                Medical Programs and Services <ul>
+                <a href="/services/medical_programs_services">Medical Programs and Services</a><ul>
                     <li>
-                        Fitness for Duty Examinations
+                        <a href="/services/fitness_for_duty">Fitness for Duty Examinations</a>
                     </li>
                     <br>
                     <li>
