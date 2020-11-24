@@ -26,7 +26,7 @@ SECRET_KEY = 'i3+4=tt%!p0i#q#y_r@!*(^m!z%r61wg0g7upecel3r9vh*$()'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost", "aee18641e0da.ngrok.io"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "akdemo.ngrok.io", "akdemo.earthmanlabs.com"]
 
 
 # Application definition
